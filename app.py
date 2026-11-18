@@ -13,6 +13,8 @@ st.markdown("""
 st.markdown("""
     <canvas id="ocean"></canvas>
 """, unsafe_allow_html=True)
+st.markdown("""
+    <style>
        #ocean {
            position: fixed;
            top: 0;
@@ -21,6 +23,8 @@ st.markdown("""
            height: 100vh;
            z-index: 10;
        }
+    </style>
+""", unsafe_allow_html=True)
 st.markdown("""
     <script>
         const canvas = document.getELementById("ocean");
