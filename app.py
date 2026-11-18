@@ -10,3 +10,28 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+    <canvas id="ocean"></canvas>
+""", unsafe_allow_html=True)
+#ocean {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+st.markdown("""
+    <script>
+        const canvas = document.getELementById("ocean");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.beginPath();
+        ctx.arc(200, 200, 4, 0, Math.PI * 2);
+        ctx.fillStyle = "#00DFFF";
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#00DFFF";
+        ctx.fill();
+    </script>
+""", unsafe_allow_html=True)
