@@ -12,12 +12,20 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 components.html("""
+    <style>
+        body {
+            margin: 0;
+            background: black;
+        }
+    </style>
     <canvas id="ocean></canvas>
     <script>
         const canvas = document.getELementById("ocean");
         const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = 1000;
+        canvas.height = 700;
+        canvas.style.width = "100%";
+        canvas.style.height = "700px";
         ctx.beginPath();
         ctx.arc(200, 200, 4, 0, Math.PI * 2);
         ctx.fillStyle = "#00DFFF";
