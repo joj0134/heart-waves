@@ -22,6 +22,24 @@ components.html("""
     <script>
         const canvas = document.getElementById("ocean");
         const ctx = canvas.getContext("2d");
+        let particle = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            size: 3,
+            speed: 1
+        };
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particle.x += particle.speed;
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fillStyle = "#00DFFF";
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = "#00DFFF";
+            ctx.fill();
+            requestAnimationFrame(animate);
+        }
+        animate();
         canvas.width = 1000;
         canvas.height = 700;
         canvas.style.width = "100%";
