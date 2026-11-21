@@ -32,6 +32,7 @@ components.html("""
             + Math.random() * canvas.height * 0.55;
             let layer = Math.floor(Math.random() * 3);
             particles.push({
+                layer: layer,
                 x: Math.random() * canvas.width,
                 y: starTY,
                 baseY: starTY,
@@ -41,7 +42,11 @@ components.html("""
                     : layer === 1
                         ? Math.random() * 2 + 1
                         : Math.random() * 3 + 2,
-                speed: Math.random() * 2 + 0.5,
+                speed: layer === 0
+                    ? Math.random() * 0.5 + 0.2,
+                    : layer === 1
+                        ? Math.random() * 1 + 0.5
+                        : Math.random() * 2 + 1,
                 waveStrength: Math.random() * 20 + 15,
                 waveSpeed: Math.random() * 0.5 + 0.5,
             });
@@ -60,11 +65,13 @@ components.html("""
                 }
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fillStyle = "#00DFFF";
+                ctx.globalAlpha = particle.layer === 0 ? 0.3 :
+                    particle.layer === 1 ? 0.65 : 1;
                 ctx.shadowBlur = particle.size * 4;
                 ctx.shadowColor = "#00DFFF";
                 ctx.fill();
             }
+            ctx.glabalAlpha = 1;
             requestAnimationFrame(animate);
         }
         animate();
