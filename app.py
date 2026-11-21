@@ -27,7 +27,7 @@ components.html("""
         canvas.style.width = "100%";
         canvas.style.height = "700px";
         let particles = [];
-        for (let i = 0; i < 2500; i++) {
+        for (let i = 0; i < 5000; i++) {
         let starTY = canvas.height * 0.45
             + Math.random() * canvas.height * 0.55;
             let layer = Math.floor(Math.random() * 3);
