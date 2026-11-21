@@ -69,7 +69,8 @@ components.html("""
                 ctx.globalAlpha = particle.layer === 0 ? 0.3 :
                     particle.layer === 1 ? 0.65 : 1;
                 ctx.fillStyle = "#00DFFF";
-                ctx.shadowBlur = particle.size * 4;
+                ctx.shadowBlur = particle.layer === 0 ? 3 :
+                    particle.layer === 1 ? 8 : 18;
                 ctx.shadowColor = "#00DFFF";
                 ctx.fill();
             }
