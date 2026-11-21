@@ -39,12 +39,13 @@ components.html("""
                 if (particle.x > canvas.width) {
                     particle.x = 0;
                 }
-            ctx.beginPath();
-            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            ctx.fillStyle = "#00DFFF";
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = "#00DFFF";
-            ctx.fill();
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = "#00DFFF";
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = "#00DFFF";
+                ctx.fill();
+            }
             requestAnimationFrame(animate);
         }
         animate();
