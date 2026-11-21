@@ -22,6 +22,10 @@ components.html("""
     <script>
         const canvas = document.getElementById("ocean");
         const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = 700;
+        canvas.style.width = "100%";
+        canvas.style.height = "700px";
         let particles = [];
         for (let i = 0; i < 100; i++) {
             particles.push({
@@ -50,15 +54,5 @@ components.html("""
             requestAnimationFrame(animate);
         }
         animate();
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        canvas.style.width = "100%";
-        canvas.style.height = "100vh";
-        ctx.beginPath();
-        ctx.arc(200, 200, 4, 0, Math.PI * 2);
-        ctx.fillStyle = "#00DFFF";
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = "#00DFFF";
-        ctx.fill();
     </script>
 """, height=700)
