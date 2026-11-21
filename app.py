@@ -27,20 +27,28 @@ components.html("""
         canvas.style.width = "100%";
         canvas.style.height = "700px";
         let particles = [];
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 350; i++) {
+        let starTY = canvas.height * 0.65
+            + Math.random() * canvas.height * 0.35;
             particles.push({
                 x: Math.random() * canvas.width,
-                y: canvas.height * 0.65 + Math.random() * canvas.height * 0.35,
+                y: starTY,
+                baseY: starTY,
+                waveOFFset: Math.random() * Math.PI * 2,
                 size: Math.random() < 0.75
                     ? Math.random() * 1.5 + 0.5
                     : Math.random() * 4 + 2,
                 speed: Math.random() * 2 + 0.5
             });
         }
+        let time = 0;
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            time += 0.02;
             for (let particle of particles) {
                 particle.x += particle.speed;
+                particle.y = particle.baseY +
+                    Math.sin(particle.x * 0.01 + time + particle.waveOFFset) * 18;
                 if (particle.x > canvas.width) {
                     particle.x = 0;
                 }
