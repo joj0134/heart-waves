@@ -27,7 +27,9 @@ components.html("""
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 3 + 1,
+                size: Math.random() < 0.75
+                    ? Math.random() * 1.5 + 0.5
+                    : Math.random() * 4 + 2,
                 speed: Math.random() * 2 + 0.5
             });
         }
@@ -41,7 +43,7 @@ components.html("""
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
                 ctx.fillStyle = "#00DFFF";
-                ctx.shadowBlur = 15;
+                ctx.shadowBlur = particle.size * 4;
                 ctx.shadowColor = "#00DFFF";
                 ctx.fill();
             }
