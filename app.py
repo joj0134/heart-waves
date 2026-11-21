@@ -48,7 +48,7 @@ components.html("""
                         ? Math.random() * 1 + 0.5
                         : Math.random() * 2 + 1,
                 waveStrength: Math.random() * 20 + 15,
-                waveSpeed: Math.random() * 0.5 + 0.5,
+                waveSpeed: Math.random() * 1.2 + 0.3,
             });
         }
         let time = 0;
