@@ -54,6 +54,7 @@ components.html("""
         let time = 0;
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.globalAlpha = 1;
             time += 0.02;
             for (let particle of particles) {
                 particle.x += particle.speed;
@@ -71,7 +72,6 @@ components.html("""
                 ctx.shadowColor = "#00DFFF";
                 ctx.fill();
             }
-            ctx.globalAlpha = 1;
             requestAnimationFrame(animate);
         }
         animate();
