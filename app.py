@@ -43,7 +43,7 @@ components.html("""
                         ? Math.random() * 2 + 1
                         : Math.random() * 3 + 2,
                 speed: layer === 0
-                    ? Math.random() * 0.5 + 0.2,
+                    ? Math.random() * 0.5 + 0.2
                     : layer === 1
                         ? Math.random() * 1 + 0.5
                         : Math.random() * 2 + 1,
@@ -68,6 +68,7 @@ components.html("""
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
                 ctx.globalAlpha = particle.layer === 0 ? 0.3 :
                     particle.layer === 1 ? 0.65 : 1;
+                ctx.fillStyle = "#00DFFF";
                 ctx.shadowBlur = particle.size * 4;
                 ctx.shadowColor = "#00DFFF";
                 ctx.fill();
