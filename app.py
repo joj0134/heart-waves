@@ -60,7 +60,7 @@ components.html("""
                 particle.x += particle.speed;
                 particle.y = particle.baseY +
                     Math.sin(particle.x * 0.008 + time * particle.waveSpeed + particle.waveOffset) * particle.waveStrength +
-                    Math.sin(particle.x * 0.015 - time * 0.7) * 10 +
+                    Math.sin(particle.x * 0.015 - time * 1.8 + particle.waveOffset) * 22 +
                     Math.sin(particle.x * 0.003 + time * 0.4 + particle.waveOffset) * 25;
                 if (particle.x > canvas.width) {
                     particle.x = 0;
