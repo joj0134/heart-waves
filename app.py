@@ -27,9 +27,9 @@ components.html("""
         canvas.style.width = "100%";
         canvas.style.height = "700px";
         let particles = [];
-        for (let i = 0; i < 350; i++) {
-        let starTY = canvas.height * 0.65
-            + Math.random() * canvas.height * 0.35;
+        for (let i = 0; i < 1200; i++) {
+        let starTY = canvas.height * 0.45
+            + Math.random() * canvas.height * 0.55;
             particles.push({
                 x: Math.random() * canvas.width,
                 y: starTY,
@@ -48,7 +48,7 @@ components.html("""
             for (let particle of particles) {
                 particle.x += particle.speed;
                 particle.y = particle.baseY +
-                    Math.sin(particle.x * 0.01 + time + particle.waveOFFset) * 18;
+                    Math.sin(particle.x * 0.01 + time + particle.waveOFFset) * 28;
                 if (particle.x > canvas.width) {
                     particle.x = 0;
                 }
