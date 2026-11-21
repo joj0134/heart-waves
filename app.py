@@ -71,7 +71,7 @@ components.html("""
                 ctx.shadowColor = "#00DFFF";
                 ctx.fill();
             }
-            ctx.glabalAlpha = 1;
+            ctx.globalAlpha = 1;
             requestAnimationFrame(animate);
         }
         animate();
