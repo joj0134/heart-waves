@@ -30,14 +30,17 @@ components.html("""
         for (let i = 0; i < 2500; i++) {
         let starTY = canvas.height * 0.45
             + Math.random() * canvas.height * 0.55;
+            let layer = Math.floor(Math.random() * 3);
             particles.push({
                 x: Math.random() * canvas.width,
                 y: starTY,
                 baseY: starTY,
                 waveOffset: Math.random() * Math.PI * 2,
-                size: Math.random() < 0.85
-                    ? Math.random() * 1.5 + 0.5
-                    : Math.random() * 3 + 1,
+                size: layer === 0 
+                    ? Math.random() * 1 + 0.5
+                    : layer === 1
+                        ? Math.random() * 2 + 1
+                        : Math.random() * 3 + 2,
                 speed: Math.random() * 2 + 0.5,
                 waveStrength: Math.random() * 20 + 15,
                 waveSpeed: Math.random() * 0.5 + 0.5,
