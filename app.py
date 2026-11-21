@@ -22,18 +22,23 @@ components.html("""
     <script>
         const canvas = document.getElementById("ocean");
         const ctx = canvas.getContext("2d");
-        let particle = {
-            x: canvas.width / 2,
-            y: canvas.height / 2,
-            size: 3,
-            speed: 1
-        };
+        let particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 3 + 1,
+                speed: Math.random() * 2 + 0.5
+            });
+        }
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particle.x += particle.speed;
-            if (particle.x > canvas.width || particle.x < 0) {
-                particle.speed *= -1;
-            }
+            for (let particle of particles) {
+                particle.x += particle.speed;
+                if (particle.x > canvas.width) {
+                    particle.x = 0;
+                }
             ctx.beginPath();
             ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
             ctx.fillStyle = "#00DFFF";
