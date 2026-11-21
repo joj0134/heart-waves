@@ -33,7 +33,6 @@ components.html("""
         }
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particle.x += particle.speed;
             for (let particle of particles) {
                 particle.x += particle.speed;
                 if (particle.x > canvas.width) {
