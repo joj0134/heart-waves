@@ -31,6 +31,9 @@ components.html("""
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particle.x += particle.speed;
+            if (particle.x > canvas.width || particle.x < 0) {
+                particle.speed *= -1;
+            }
             ctx.beginPath();
             ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
             ctx.fillStyle = "#00DFFF";
