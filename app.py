@@ -26,7 +26,7 @@ components.html("""
         for (let i = 0; i < 100; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
-                y: canvas.height * 0.85,
+                y: canvas.height * 0.4 + Math.random() * canvas.height * 0.6,
                 size: Math.random() < 0.75
                     ? Math.random() * 1.5 + 0.5
                     : Math.random() * 4 + 2,
@@ -51,9 +51,9 @@ components.html("""
         }
         animate();
         canvas.width = window.innerWidth;
-        canvas.height = 700;
+        canvas.height = window.innerHeight;
         canvas.style.width = "100%";
-        canvas.style.height = "700px";
+        canvas.style.height = "100vh";
         ctx.beginPath();
         ctx.arc(200, 200, 4, 0, Math.PI * 2);
         ctx.fillStyle = "#00DFFF";
