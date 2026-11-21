@@ -34,11 +34,11 @@ components.html("""
                 x: Math.random() * canvas.width,
                 y: starTY,
                 baseY: starTY,
-                waveOFFset: Math.random() * Math.PI * 2,
+                waveOffset: Math.random() * Math.PI * 2,
                 size: Math.random() < 0.85
                     ? Math.random() * 1.5 + 0.5
                     : Math.random() * 3 + 1,
-                speed: Math.random() * 2 + 0.5
+                speed: Math.random() * 2 + 0.5,
                 waveStrength: Math.random() * 20 + 15,
                 waveSpeed: Math.random() * 0.5 + 0.5,
             });
@@ -50,7 +50,7 @@ components.html("""
             for (let particle of particles) {
                 particle.x += particle.speed;
                 particle.y = particle.baseY +
-                    Math.sin(particle.x * 0.008 + time * particle.waveSpeed + particle.waveOFFset) * particle.waveStrength +
+                    Math.sin(particle.x * 0.008 + time * particle.waveSpeed + particle.waveOffset) * particle.waveStrength +
                     Math.sin(particle.x * 0.015 - time * 0.7) * 10;
                 if (particle.x > canvas.width) {
                     particle.x = 0;
