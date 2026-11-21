@@ -48,7 +48,7 @@ components.html("""
             requestAnimationFrame(animate);
         }
         animate();
-        canvas.width = 1000;
+        canvas.width = window.innerWidth;
         canvas.height = 700;
         canvas.style.width = "100%";
         canvas.style.height = "700px";
