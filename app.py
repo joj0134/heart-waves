@@ -26,7 +26,7 @@ components.html("""
         for (let i = 0; i < 100; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
+                y: canvas.height * 0.4 + Math.random() * canvas.height * 0.6,
                 size: Math.random() < 0.75
                     ? Math.random() * 1.5 + 0.5
                     : Math.random() * 4 + 2,
